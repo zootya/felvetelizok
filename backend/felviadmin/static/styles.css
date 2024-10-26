@@ -1,0 +1,21 @@
+body{
+    background-color: red;
+    background-color: cornflowerblue;
+}
+
+a {
+    text-decoration: none;
+}
+
+th, tr {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.ujadatlink {
+    color: black;
+}
+
+.torles {
+    color: red;
+}
