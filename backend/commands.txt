@@ -1,2 +1,4 @@
 docker build --tag python-django .
-docker run --publish 8000:8000 python-django
+
+//docker run --publish 8000:8000 python-django
+docker run -d -v /my_work/aladar/2024-2025_14EC-1/backend_peter_miklos/_beadando/beadando_felvetelizok_2025-01-05/backend:/app --publish 8000:8000 python-django
