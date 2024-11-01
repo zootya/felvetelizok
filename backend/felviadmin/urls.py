@@ -7,4 +7,6 @@ urlpatterns = [
     path('ujadat/', views.ujAdatWeblap),
     path('ujadatrogzit/', views.ujAdatRogzit),
     path('torles/<int:itemId>', views.torolAdat),
+    path('ujszak/', views.ujSzakWeblap),
+    path('ujszakrogzit/', views.ujSzakRogzit),
 ]

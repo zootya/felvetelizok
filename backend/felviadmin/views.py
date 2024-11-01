@@ -36,4 +36,21 @@ def ujAdatRogzit(request):
                 )
             ujadat.save()
 
-        return redirect("../felviadmin/")            
+        return redirect("../felviadmin/")
+    
+def ujSzakWeblap(request):
+    szakok = Szak.objects.all().order_by("szakNev")
+    context = {"szakok": szakok}
+    return render(request, "ujszak.html", context)
+
+def ujSzakRogzit(request):
+    _nev = request.POST.get('ujSzakNev')
+    _tamogatott = request.POST.get('ujSzakkoltseg') == "on"
+        
+    if len(_nev) > 0 :
+        ujszak = Szak(
+            szakNev = _nev, 
+            tamogatott = _tamogatott,
+        )
+        ujszak.save()
+    return redirect("../felviadmin/")

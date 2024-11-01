@@ -12,10 +12,18 @@ th, tr {
     text-align: center;
 }
 
+.myadat {
+    color: #404040;
+}
+
 .ujadatlink {
     color: black;
 }
 
 .torles {
     color: red;
+}
+
+.modosit {
+    color: #6395ED;
 }
