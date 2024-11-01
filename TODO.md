@@ -1,5 +1,5 @@
 TODO List
 <hr>
 <br>
-- [ ] A szakok létrehozása webfelületről<br>
-- [ ] Adatok módosítása webfelületről<br>
+- [X] A szakok létrehozása webfelületről<br>
+- [X] Adatok módosítása webfelületről<br>

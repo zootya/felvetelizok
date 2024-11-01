@@ -45,8 +45,7 @@ def ujSzakWeblap(request):
 
 def ujSzakRogzit(request):
     _nev = request.POST.get('ujSzakNev')
-    _tamogatott = request.POST.get('ujSzakkoltseg') == "on"
-        
+    _tamogatott = request.POST.get('ujSzakkoltseg') == "on"        
     if len(_nev) > 0 :
         ujszak = Szak(
             szakNev = _nev, 
@@ -54,3 +53,30 @@ def ujSzakRogzit(request):
         )
         ujszak.save()
     return redirect("../felviadmin/")
+
+def modositAdat(request, itemId):
+    osszesAdat = Felvetelizo.objects.all().order_by("nev")
+    context = {
+               "modositando": Felvetelizo.objects.get(id = itemId),
+               "szakok": Szak.objects.all().order_by("szakNev"),
+               }
+    return render(request, "modositas.html", context)
+
+def modositRogzit(request):
+    if request.method == "POST":
+        _id =  request.POST['modositId']
+        _nev = request.POST['modositNev']
+        _szul_evszam = request.POST['modositSzul_evszam']
+        _pontszam = request.POST['modositPontszam']
+        _szak_id = request.POST['modositSzak']
+        _szak = Szak.objects.get(pk = _szak_id)
+        
+        if len(_nev) > 0 and _szul_evszam.isnumeric() and _pontszam.isnumeric() :
+            modositando = Felvetelizo.objects.get(id = _id)
+            modositando.nev = _nev 
+            modositando.szul_evszam = _szul_evszam
+            modositando.pontszam = _pontszam
+            modositando.szak = _szak
+            modositando.save()
+
+        return redirect("../felviadmin/")
