@@ -79,4 +79,5 @@ def modositRogzit(request):
             modositando.szak = _szak
             modositando.save()
 
-        return redirect("../felviadmin/")
+        #return redirect("../felviadmin/")
+        return redirect("index.html")
