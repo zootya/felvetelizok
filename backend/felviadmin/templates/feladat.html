@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block section %}
+    <div class="bg-light mb-5 mt-5 p-3">
+        <h1 class="text-center">Backend 1. beadandó feladat</h1>
+        <br>
+        <h2 class="text-center">Felvételizők</h2>
+        <br>
+        <p>
+            Készíts Django alkalmazást, amelyben felvételizők adatai tárolhatók!
+        </p>
+        <p>
+            <ol>
+                <li>Hozd létre a virtuális környezetet, majd aktiváld, és telepítsd a Django-t!</li>
+                <li>Hozz létre új django projektet „config” néven!</li>
+                <li>Hozz lére új appot a projekten belül „felviadmin” néven! Add hozzá a projektet a settings-hez!</li>
+                <li>A migrate segítségével hozd létre az alap adatbázisokat, majd hozd létre a superusert „admin” felhasználónévvel és jelszóval!</li>
+                <li>Hozz létre két adatmodellt:</li>
+                    <ol type="a">
+                        <li>Felvetelizo(név: szöveg, szul_ev:szám,pontszám: egész szám, szak: idegen kulcs a másik táblára)</li>
+                        <li>Szak(szakNev: szöveg) Nem kötelező, plusz feladat: Egészítsd ki a Szak modellt még egy mezővel, amely logikai típusú, és azt jelzi, hogy államilag támogatott-e vagy nem! Ha ezt megoldod, akkor később jelenjen meg ez is a táblázatban!</li>
+                    </ol>    
+                <li>A modelleket regisztráld az admin felületén!</li>
+                <li>Az adatmodelleket a makemigrations és a migrate segítségével hozd létre ténylegesen az adatbázisban! Vigyél fel legalább 2 szakot és legalább 2 felvételiző adatát az admin felület segítségével!</li>
+                <li>Készíts view-t az app-on belül index néven, amely az index.html szerver oldali renderélést oldja meg! Paraméterként kapja meg mindkét modell összes adatát!</li>
+                <li>Készíts URL-t, amely az előbbi view függévnyét hívja meg! Az url elérési útvonala legyen pl. 127.0.0.1:8000/felviadmin/	(Tehát a projekt url-jében a felviadmin importálja be az app összes url-jét, a felviadmin app pedig az üres ’’ url-hez rendelje hozzá, mint ahogy órán is megoldottuk)</li>
+                <li>Készítsd el a template-et, amely megjeleníti táblázatban a felvételiző nevét, születési évét, pontszámát, a szak nevét) A template-hez készíts statikus CSS-t is, amelyben néhány alap formázás található a táblázattal és az oldallal!</li>
+            </ol>
+            
+            <p>
+                A feladat további részét már önállóan, az órai minták alapján kell elkészítened, amelyek a következőt tegyék (az URL-eket, view nevét saját magad meghatározhatod):
+            </p>
+            
+            <ol start="11">
+                <li>Lehessen új felvételiző adatát felvinni! A felvitelnél a szak nevét legördülő listából lehessen választani! A bevitel után frissüljön a megjelenített táblázat is!</li>
+                <li>Lehessen felvételiző adatát törölni! A törlés megoldása rád van bízva, lehet URL segítségével vagy űrlap POST segítségével is!</li>
+            </ol>
+        </p>
+
+        <br>
+        <p>
+            <u><strong>Feladat beadása:</strong></u>
+            Az include, lib és scripts mappák nem kellenek, csak a django állományai, mint ahogy órán is feltettem a feladatokat. A teljes projektet tömörítsd be zip-be és úgy töltsd fel!
+        </p>
+    </div>
+{% endblock section %}

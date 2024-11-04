@@ -1,14 +1,15 @@
 from django.urls import path
 from . import views
 
-app_name = "felviadmin"
+
 urlpatterns = [
-    path('felviadmin/', views.index, name='index.html'),
-    path('ujadat/', views.ujAdatWeblap),
-    path('ujadatrogzit/', views.ujAdatRogzit),
-    path('torles/<int:itemId>', views.torolAdat),
-    path('modositas/<int:itemId>', views.modositAdat),
-    path('modositrogzit/', views.modositRogzit),
-    path('ujszak/', views.ujSzakWeblap),
-    path('ujszakrogzit/', views.ujSzakRogzit),
+    path('felviadmin/', views.index, name='index'),
+    path('ujadat/', views.ujAdatWeblap, name="ujadat"),
+    path('ujadatrogzit/', views.ujAdatRogzit, name="ujadatrogzit"),
+    path('torles/<int:itemId>', views.torolAdat, name="torles"),
+    path('modositas/<int:itemId>', views.modositAdat, name="modositas"),
+    path('modositrogzit/', views.modositRogzit, name="modositasrogzit"),
+    path('ujszak/', views.ujSzakWeblap, name="ujszak"),
+    path('ujszakrogzit/', views.ujSzakRogzit, name="ujszakrogzit"),
+    path('feladat/', views.feladat_views, name="feladat_name"),
 ]

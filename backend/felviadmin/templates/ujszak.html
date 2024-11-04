@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block section%}
-    <form action="../ujszakrogzit/" method="post" class="bg-light mb-5 mt-5 p-3">
+    <form action="../ujszakrogzit/" method="post" class="bg-warning mb-5 mt-5 p-3">
         {% csrf_token %}
         <p>
             <label for="ujSzakNev">Szakágazat neve: </label>
@@ -11,6 +11,6 @@
             <label for="ujSzakkoltseg" class="form-check-label">A szak költségtérítéses: </label>
             <input type="checkbox" class="form-check-input" name="ujSzakkoltseg" id="ujSzakkoltseg">
         </p>
-        <input type="submit" class="btn btn-warning m-4" value="Rögzítés">
+        <input type="submit" class="btn btn-success m-4" value="Rögzítés">
     </form>
 {% endblock section%}

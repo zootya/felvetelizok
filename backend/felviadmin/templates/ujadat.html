@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
-{% block section%}
-    <form action="../ujadatrogzit/" method="post" class="bg-light mb-5 mt-5 p-3">
+{% block section %}
+    <form action="../ujadatrogzit/" method="post" class="bg-warning bg-gradient mb-5 mt-5 p-3">
         {% csrf_token %}
         <p>
             <label for="ujadatNev">Felvételiző neve:</label>
@@ -17,14 +17,14 @@
         </p>
         <p>
             <label for="ujadatSzul_evszam">Választott szak megnevezése:</label>
-            <select name="ujadatSzak" id="ujadatSzak">
+            <select class="form-select" name="ujadatSzak" id="ujadatSzak">
                 {% for szak in szakok %}
                     <option value="{{szak.id}}">
                         {{szak.szakNev}}
-                    </option
+                    </option>
                 {% endfor %}
             </select>
         </p>
-        <input type="submit" class="btn btn-warning m-4" value="Rögzítés">
+        <input type="submit" class="btn btn-success m-4" value="Rögzítés">
     </form>
-{% endblock section%}
+{% endblock section %}
