@@ -15,11 +15,16 @@ class Felvetelizo(models.Model):
     nev = models.CharField(max_length=50)
     szul_evszam = models.IntegerField(
         validators=[
-            MinValueValidator(1924),
+            MinValueValidator(1925),
             MaxValueValidator(2015)
         ]
     )
-    pontszam = models.IntegerField()
+    pontszam = models.IntegerField(
+        validators=[
+            MinValueValidator(10),
+            MaxValueValidator(1000)
+        ]
+    )
     szak = models.ForeignKey("Szak", on_delete=models.CASCADE)
     def __str__(self):
         return self.nev

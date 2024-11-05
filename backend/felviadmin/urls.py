@@ -14,4 +14,6 @@ urlpatterns = [
     path('ujszak_form/', views.ujSzakForm, name="ujszak_form"),
     path('ujszakrogzit/', views.ujSzakRogzit, name="ujszakrogzit"),
     path('feladat/', views.feladat_views, name="feladat_name"),
+    path('data-error/', views.dataError, name="data-error"),
+    path('kapcsolat/', views.kapcsolat, name="kapcsolat"),
 ]

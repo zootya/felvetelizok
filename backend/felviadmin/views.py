@@ -22,17 +22,19 @@ def ujAdatWeblap(request):
     return render(request, "ujadat.html", context)
 
 
-def ujAdatForm(requrest):
-    if requrest.method == "GET":
+def ujAdatForm(request):
+    if request.method == "GET":
         form = FelvetelizoForm()
-        return render(requrest, "ujadat_form.html", {"urlapAdat" : form })
-    elif requrest.method == "POST":
-        form = FelvetelizoForm(requrest.POST)
+        return render(request, "ujadat_form.html", {"urlapAdat" : form })
+    elif request.method == "POST":
+        form = FelvetelizoForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("index")
         else:
-            return HttpResponse('<h1> Hoppsz! Ez nem sikerült próbáld újra !</h1>')
+            #return HttpResponse('<h1> Hoppsz! Ez nem sikerült próbáld újra !</h1>')
+            message = "Az adatok nem felelnek meg, nincs tárolás !"
+            return render(request, "data-error.html", {"error_message" : message })
 
 
 def ujAdatRogzit(request):
@@ -60,17 +62,18 @@ def ujSzakWeblap(request):
     return render(request, "ujszak.html", context)
 
 
-def ujSzakForm(requrest):
-    if requrest.method == "GET":
+def ujSzakForm(request):
+    if request.method == "GET":
         form = SzakForm()
-        return render(requrest, "ujszak_form.html", {"urlapSzak" : form })
-    elif requrest.method == "POST":
-        form = SzakForm(requrest.POST)
+        return render(request, "ujszak_form.html", {"urlapSzak" : form })
+    elif request.method == "POST":
+        form = SzakForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect("index")
         else:
-            return HttpResponse('<h1> Hoppsz! Ez nem sikerült próbáld újra !</h1>')
+            message = "Az adatok nem felelnek meg, nincs tárolás !"
+            return render(request, "data-error", {"error_message" : message })
 
 def ujSzakRogzit(request):
     _nev = request.POST.get('ujSzakNev')
@@ -115,3 +118,14 @@ def modositRogzit(request):
 def feladat_views(request):
     return render(request, "feladat.html")
 
+
+def dataError(request):
+    message = "Itt a bibi !"
+    return render(request, "data-error.html", {"error_message" : message })
+
+def kapcsolat(request):
+    adatok = {
+        "nev" : "Kardos Zoltán",
+        "email" : "level kardos zoltannak kukac gmail pont kom",
+    }
+    return render(request, "kapcsolat.html", {"kapcsolatiAdatok" : adatok })
