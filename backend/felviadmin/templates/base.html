@@ -41,9 +41,11 @@
                             Adatrögzítés
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="../ujadat/"><i class="bi bi-card-list"> - Új felvételiző adatainak rögzítése</i></a></li>
+                            <li><a class="dropdown-item disabled" href="../ujadat/"><i class="bi bi-card-list"> - Új felvételiző adatainak rögzítése</i></a></li>
+                            <li><a class="dropdown-item" href="{% url 'ujadat_form' %}"><i class="bi bi-card-list"> - Új felvételiző adatainak rögzítése (formból)</i></a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="../ujszak/"><i class="bi bi-card-list"> - Új szak rögzítése</i></a></li>
+                            <li><a class="dropdown-item disabled" href="../ujszak/" tabindex="-1" aria-disabled="true"><i class="bi bi-card-list"> - Új szak rögzítése</i></a></li>
+                            <li><a class="dropdown-item" href="{% url 'ujszak_form' %}"><i class="bi bi-card-list"> - Új szak rögzítése (fomból)</i></a></li>
                         </ul>
                     </li>
                     <li class="nav-item">

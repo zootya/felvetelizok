@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 # Create your models here.
 
@@ -12,7 +13,12 @@ class Szak(models.Model):
 
 class Felvetelizo(models.Model):
     nev = models.CharField(max_length=50)
-    szul_evszam = models.IntegerField()
+    szul_evszam = models.IntegerField(
+        validators=[
+            MinValueValidator(1924),
+            MaxValueValidator(2015)
+        ]
+    )
     pontszam = models.IntegerField()
     szak = models.ForeignKey("Szak", on_delete=models.CASCADE)
     def __str__(self):

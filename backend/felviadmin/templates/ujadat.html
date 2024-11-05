@@ -16,7 +16,7 @@
             <input type="number" class="form-control" name="ujadatPontszam" id="ujadatPontszam" required>
         </p>
         <p>
-            <label for="ujadatSzul_evszam">Választott szak megnevezése:</label>
+            <label for="ujadatSzak">Választott szak megnevezése:</label>
             <select class="form-select" name="ujadatSzak" id="ujadatSzak">
                 {% for szak in szakok %}
                     <option value="{{szak.id}}">

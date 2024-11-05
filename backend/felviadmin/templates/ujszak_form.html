@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block section %}
+    <form class="bg-warning mb-5 mt-5 p-3" method="POST">
+    
+        {% csrf_token%}
+
+        {{ urlapSzak.as_p }}
+
+        <input type="submit" class="btn btn-success m-4" value="Rögzítés">
+
+    </form>
+{% endblock section %}

@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from .models import Szak, Felvetelizo
+from .forms import SzakForm, FelvetelizoForm
+
 # Create your views here.
 
 def index(request):
@@ -18,6 +20,20 @@ def ujAdatWeblap(request):
     szakok = Szak.objects.all().order_by("szakNev")
     context = {"szakok": szakok}
     return render(request, "ujadat.html", context)
+
+
+def ujAdatForm(requrest):
+    if requrest.method == "GET":
+        form = FelvetelizoForm()
+        return render(requrest, "ujadat_form.html", {"urlapAdat" : form })
+    elif requrest.method == "POST":
+        form = FelvetelizoForm(requrest.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("index")
+        else:
+            return HttpResponse('<h1> Hoppsz! Ez nem sikerült próbáld újra !</h1>')
+
 
 def ujAdatRogzit(request):
     if request.method == "POST":
@@ -42,6 +58,19 @@ def ujSzakWeblap(request):
     szakok = Szak.objects.all().order_by("szakNev")
     context = {"szakok": szakok}
     return render(request, "ujszak.html", context)
+
+
+def ujSzakForm(requrest):
+    if requrest.method == "GET":
+        form = SzakForm()
+        return render(requrest, "ujszak_form.html", {"urlapSzak" : form })
+    elif requrest.method == "POST":
+        form = SzakForm(requrest.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("index")
+        else:
+            return HttpResponse('<h1> Hoppsz! Ez nem sikerült próbáld újra !</h1>')
 
 def ujSzakRogzit(request):
     _nev = request.POST.get('ujSzakNev')
@@ -85,3 +114,4 @@ def modositRogzit(request):
 
 def feladat_views(request):
     return render(request, "feladat.html")
+
